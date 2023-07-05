@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Icon, Link } from "vcc-ui";
+import { Button, Icon, Link } from "vcc-ui";
+import { ChevronSmall } from "../src/assets/icons/chevron-small";
 
 interface Car {
   id: string;
@@ -28,11 +29,17 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container-max">
       <h2 className="some-heading">Latest Recharge Cars</h2>
 
       {cars.map((car) => (
         <div key={car.id} className="car-card">
+          <p> {car.bodyType}</p>
+          <div>
+            <h2>{car.modelName}</h2>
+
+            <p> {car.modelType}</p>
+          </div>
           <div className="car-image">
             <Image
               src={car.imageUrl}
@@ -40,17 +47,15 @@ const ProductList = () => {
               width={400}
               height={250}
             />
+            div
           </div>
           <div className="car-details">
-            <h2>{car.modelName}</h2>
-            <p>Body Type: {car.bodyType}</p>
-            <p>Model Type: {car.modelType}</p>
-            <div className="car-actions">
-              <a href={`/learn/${car.id}`}>
-                Learn More <Link />
+            <div className="flex flex-wrap gap-x-24">
+              <a className="button-text" href={`/learn/${car.id}`}>
+                Learn More <ChevronSmall />
               </a>
-              <a href={`/shop/${car.id}`}>
-                Shop Now <Icon type="shop-40" />
+              <a className="button-text" href={`/shop/${car.id}`}>
+                Shop Now <ChevronSmall />
               </a>
             </div>
           </div>
