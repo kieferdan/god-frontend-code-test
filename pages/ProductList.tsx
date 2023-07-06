@@ -1,6 +1,7 @@
-import react, { useEffect, useState } from "react";
-import Image from "next/image";
-import { Button, Icon, Link } from "vcc-ui";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { ChevronSmall } from "../src/assets/icons/chevron-small";
 
 interface Car {
@@ -13,6 +14,7 @@ interface Car {
 
 const ProductList = () => {
   const [cars, setCars] = useState<Car[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,39 +30,46 @@ const ProductList = () => {
     fetchData();
   }, []);
 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+  };
+
   return (
-    <div className="container-max">
-      <h2 className="some-heading">Latest Recharge Cars</h2>
+    <div className="product-list">
+      <h2 className="product-list-heading">Latest Recharge Cars</h2>
 
-      {cars.map((car) => (
-        <div key={car.id} className="car-card">
-          <p> {car.bodyType}</p>
-          <div>
-            <h2>{car.modelName}</h2>
-
-            <p> {car.modelType}</p>
-          </div>
-          <div className="car-image">
-            <Image
-              src={car.imageUrl}
-              alt={car.modelName}
-              width={400}
-              height={250}
-            />
-            div
-          </div>
-          <div className="car-details">
-            <div className="flex flex-wrap gap-x-24">
-              <a className="button-text" href={`/learn/${car.id}`}>
+      <Slider {...settings}>
+        {cars.map((car) => (
+          <div key={car.id} className="product-card " style={{
+            padding: '16px',
+            display: 'flex',
+            gap: '4px'
+          }}>
+            <img src={car.imageUrl} alt={car.modelName} className="product-image" style={{
+              width: "100%",
+              
+            }} />
+            <div className="product-details">
+              <h3 className="product-name">{car.modelName}</h3>
+              <p className="product-type">{car.modelType}</p>
+              <p className="product-body-type">{car.bodyType}</p>
+            </div>
+            <div className="product-actions">
+              <a href={`/learn/${car.id}`} className="product-link">
                 Learn More <ChevronSmall />
               </a>
-              <a className="button-text" href={`/shop/${car.id}`}>
+              <a href={`/shop/${car.id}`} className="product-link">
                 Shop Now <ChevronSmall />
               </a>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </Slider>
     </div>
   );
 };
