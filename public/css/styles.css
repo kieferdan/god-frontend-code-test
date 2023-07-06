@@ -24,3 +24,6 @@ a {
   font-family: Volvo Novum, Arial, sans-serif;
 }
 
+.slick-slide {
+  padding: 8px;
+}
