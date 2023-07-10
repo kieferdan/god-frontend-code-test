@@ -52,7 +52,7 @@ const ProductList = () => {
             <div className="bo bp bq br bs bt">
               <div className="a b fo fp fq fr">
                 <div className="a fo gy o">
-                  <div style={{ width: "100%", touchAction: "pan-y" }}>
+                  <div style={{ width: "100%", touchAction: "pan-y", animation:"ease-in" }}>
                     <Slider {...settings}>
                       {cars.map((car) => (
                         <div key={car.id} className="a b hf hg hh"  style={{ width: "100%", display: "inline-block", padding: "4px" }}>
