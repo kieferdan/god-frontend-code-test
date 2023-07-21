@@ -43,7 +43,9 @@ const ProductList = () => {
     <div className="product-list">
       <div className="bo bp bq br bs bt">
         <div className="a b fo fp fq fr">
-          <h2 className="a cg cj ck cl co cr cs ct cw cx dd dg dh fs ft fu fv fw fx fy fz ga gb gc p">Todos os modelos Recharge</h2>
+          <h2 className="a cg cj ck cl co cr cs ct cw cx dd dg dh fs ft fu fv fw fx fy fz ga gb gc p">
+            Todos os modelos Recharge
+          </h2>
         </div>
       </div>
       <div className="a gu gv">
@@ -52,17 +54,40 @@ const ProductList = () => {
             <div className="bo bp bq br bs bt">
               <div className="a b fo fp fq fr">
                 <div className="a fo gy o">
-                  <div style={{ width: "100%", touchAction: "pan-y", animation:"ease-in" }}>
+                  <div
+                    style={{
+                      width: "100%",
+                      touchAction: "pan-y",
+                      animation: "ease-in",
+                    }}
+                  >
                     <Slider {...settings}>
                       {cars.map((car) => (
-                        <div key={car.id} className="a b hf hg hh"  style={{ width: "100%", display: "inline-block", padding: "4px" }}>
+                        <div
+                          key={car.id}
+                          className="a b hf hg hh"
+                          style={{
+                            width: "100%",
+                            display: "inline-block",
+                            padding: "4px",
+                          }}
+                        >
                           <div className="bo bp bq br bs bt hi hj z">
-                            <a href={`/br/cars/${car.id}`} className="bo bp bq br bs bt ef hk hl hm hn ho hp hq hr hs">
+                            <a
+                              href={`/br/cars/${car.id}`}
+                              className="bo bp bq br bs bt ef hk hl hm hn ho hp hq hr hs"
+                            >
                               <div className="bo bp bq br bs bt hk">
-                                <em className="a cg ch cj ck co cp cq cr cs ct cu cv cw cx dd de df fg fs gi gj gk gl gm gn go gp gq gr p item-category">{car.bodyType}</em>
+                                <em className="a cg ch cj ck co cp cq cr cs ct cu cv cw cx dd de df fg fs gi gj gk gl gm gn go gp gq gr p item-category">
+                                  {car.bodyType}
+                                </em>
                                 <h3 className="bo dy ie">
-                                  <span className="a cg ch cj ck co cp cq cr cs ct cu cv cw cx dd de df dg dh fs gi if p item-name">{car.modelName}</span>
-                                  <span className="a cg ch co cp cq ct cu cv dd de df gi gj gp gq gr gs p item-name-suffix">{car.rechargeType}</span>
+                                  <span className="a cg ch cj ck co cp cq cr cs ct cu cv cw cx dd de df dg dh fs gi if p item-name">
+                                    {car.modelName}
+                                  </span>
+                                  <span className="a cg ch co cp cq ct cu cv dd de df gi gj gp gq gr gs p item-name-suffix">
+                                    {car.rechargeType}
+                                  </span>
                                 </h3>
                                 <div className="a gs item-price">
                                   <small className="a cg co ct dd ev gj gp gq gr ht hu hv hw hx hy hz ia ib ic id ig p"></small>
@@ -88,7 +113,26 @@ const ProductList = () => {
                                     href={`/br/cars/${car.id}`}
                                     className="a ah ar as at au cg cj ef el em ev jk jl jm jn jo jp jq jr js jt ju jv"
                                   >
-                                    Conheça<span className="fe fg">&#xFEFF;<svg className="jw jx o" preserveAspectRatio="xMinYMin meet" viewBox="0 0 11 11" width="0.7851em" height="0.7851em" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.5l4 4-4 4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg></span>
+                                    Conheça
+                                    <span className="fe fg">
+                                      &#xFEFF;
+                                      <svg
+                                        className="jw jx o"
+                                        preserveAspectRatio="xMinYMin meet"
+                                        viewBox="0 0 11 11"
+                                        width="0.7851em"
+                                        height="0.7851em"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M2 1.5l4 4-4 4"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </span>
                                   </a>
                                 </div>
                               </div>
